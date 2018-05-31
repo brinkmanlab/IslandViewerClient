@@ -8,7 +8,7 @@ from optparse import OptionParser
 
 # Get options from the command line
 parser = OptionParser()
-parser.add_option("-r", "--reference", dest="reference", action="store", type="string", help="For draft genomes, the accession number of the desired reference genome for contig reordering", metavar="NAME")
+parser.add_option("-r", "--reference", dest="reference", action="store", type="string", help="For draft genomes, the accession number of the desired reference genome for contig reordering", metavar="ACCESSION")
 parser.add_option("-t", "--token", dest="token", action="store", type="string", help="Your authentication token for the API", metavar="TOKEN")
 parser.add_option("-s", "--sample", dest="sample", action="store", type="string", help="The sample/genome name", metavar="SAMPLE")
 parser.add_option("-i", "--indir", dest="indir", action="store", type="string", help="The directory containing the input genbank file", metavar="INDIR")
