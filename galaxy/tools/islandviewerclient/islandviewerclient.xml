@@ -1,0 +1,46 @@
+<tool id="islandviewerclient" name="IslandViewer Client" version="0.1.0">
+  <requirements>
+    <requirement type="package" version="0.0.0">
+      islandviewerclient
+    </requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+    python ivclient.py
+    --accession '$accession'
+    --token '$token'
+    --sequence '$sequence'
+    --gbk '$gbk'
+    --tab '$tab'
+    ]]></command>
+    <inputs>
+      <param name="accession" type="text" label="Reference Accession" help="RefSeq accession specifying which reference to use for contig reordering."/>
+      <param name="token" type="text" label="Authentication token" />
+      <param name="sequence" type="data" format="genbank"  label="Sequence file (genbank format) for input into IslandViewer" />
+    </inputs>
+    <outputs>
+      <data name="gbk" format="genbank"/>
+      <data name="tab" format="tabular"/>
+    </outputs>
+    <help><![CDATA[
+    Usage: ivclient.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  --accession=ACCESSION
+                        Accession is the RefSeq accession for the desired
+                        reference genome used in the contig reordering step
+                        (mandatory for draft genomes)
+  --token=TOKEN         Your authentication token for the API. This is found
+                        under'JOBS' > 'HTTP API Token' when you login at
+                        www.pathogenomics.sfu.ca/islandviewer and is valid for
+                        30 days before having to be refreshed.
+  --gbk=GENBANK         Provide a name for the reordered genbank file
+                        containing genomic islands predicted by IslandViewer
+                        (output file).
+  --seq=SEQUENCE, --sequence=SEQUENCE
+                        Provide a name for the sequence file (genbank format)
+                        used as input.
+  --tab=TAB             Provide a name for the tab-delimited file that
+                        summarizes predicted genomic islands (output file).
+    ]]></help>
+</tool>

@@ -1,0 +1,7 @@
+name: islandviewerclient
+owner: glwinsor
+description: IslandViewer Client to submit jobs and monitor status
+long_description:
+homepage_url: https://github.com/glwinsor/IslandViewerClient
+remote_respository_url: https://github.com/glwinsor/IslandViewerClient/tree/master/galaxy
+type: unrestricted

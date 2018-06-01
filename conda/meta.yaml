@@ -1,0 +1,29 @@
+{% set name = "IslandViewerClient" %}
+{% set version = "0.0.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/glwinsor/IslandViewerClient.git
+  git_rev: master
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - requests
+    - requests-toolbelt
+
+about:
+  home: https://github.com/glwinsor/IslandViewerClient
+  summary: "IslandViewer is a computational tool that integrates four different genomic island prediction methods"
+  license: MIT
+  license_file: LICENSE
