@@ -21,6 +21,7 @@ requirements:
     - python
     - requests
     - requests-toolbelt
+    - curl
 
 about:
   home: https://github.com/glwinsor/IslandViewerClient
