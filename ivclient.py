@@ -5,6 +5,8 @@ import re
 import os
 import sys
 import time
+import json
+
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 from optparse import OptionParser
 
@@ -37,21 +39,28 @@ if not os.path.isfile(options.sequence):
 host = "http://www.pathogenomics.sfu.ca/islandviewer"
 
 
-multipart_data = MultipartEncoder(
-    fields={ "format_type": "GENBANK",
-             'ref_accnum': options.accession,
-             'genome_file': ('filename', open(options.sequence, 'rb'), 'text/plain')}
-)
+multipart_data = MultipartEncoder(fields={ "format_type": "GENBANK",'ref_accnum': options.accession,'genome_file': ('filename', open(options.sequence, 'rb'), 'text/plain')})
+
 headers={'Content-Type': multipart_data.content_type,'x-authtoken': options.token}
   
-# submit this genome to IslandViewer
-response = requests.post(host+"/rest/submit/", headers=headers, data=multipart_data)
-   
-if not response.ok:
-    response.raise_for_status()
-    sys.exit()
-   
-decoded = response.json()
+
+
+try:
+    # Submit this genome to IslandViewer using Python requests. Note that on the Cedar infrastructure a post by requests times out. Handle this by submitting using cURL
+    response = requests.post(host+"/rest/submit/", headers=headers, data=multipart_data, timeout=100)
+    if not response.ok:
+        response.raise_for_status()
+        sys.exit()
+    else:
+        decoded = response.json()
+
+except requests.exceptions.ReadTimeout as readerr:
+    print(readerr)
+    print("Attempting to submit data using cURL...")
+    os.system("curl -H 'x-authtoken: "+options.token+"' -Fformat_type=GENBANK -F ref_accnum="+options.accession+"  -Fgenome_file=@"+options.sequence+" -X POST "+host+"/rest/submit/ > response.json")
+    with open('response.json') as f:
+        decoded = json.load(f)
+
   
 if decoded['status']==200:
     job_token=decoded['token']
@@ -68,7 +77,11 @@ while job_status !='Complete':
     response = requests.post(host+"/rest/job/"+job_token+"/", headers=headers)
     decoded = response.json()
     job_status=decoded['status']
-    time.sleep(30)
+    print(job_status)
+    if job_status=='Error':
+        pass
+    else:
+        time.sleep(30)
      
 # Download the Genbank including genomic island predictions, and the reordered concatenated contigs
 request_status=""
