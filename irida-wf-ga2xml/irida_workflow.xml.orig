@@ -1,0 +1,95 @@
+<iridaWorkflow>
+  <id>852bc2d9-e848-4ce5-a3d7-740f880a9f5b</id>
+  <name>IslandViewerClient</name>
+  <version>0.1</version>
+  <analysisType>islandviewerclient</analysisType>  <inputs>
+    <sequenceReadsPaired>sequence_reads_paired</sequenceReadsPaired>
+    <requiresSingleSample>true</requiresSingleSample>
+  </inputs>
+<parameters>
+    <parameter name="read-merge-min-overlap" defaultValue="20">
+      <toolParameter  toolId="irida.corefacility.ca/galaxy-shed/repos/irida/flash/FLASH/1.3.0" parameterName="min_overlap" />
+    </parameter>
+    <parameter name="read-merge-max-overlap" defaultValue="300">
+      <toolParameter toolId="irida.corefacility.ca/galaxy-shed/repos/irida/flash/FLASH/1.3.0"  parameterName="max_overlap" />
+    </parameter>
+    <parameter name="assembly-contig-min-length" defaultValue="1000">
+      <toolParameter toolId="irida.corefacility.ca/galaxy-shed/repos/irida/filter_spades_repeats/filter_spades_repeat/1.0.0" parameterName="len_cutoff" />
+    </parameter>
+    <parameter name="assembly-contig-min-coverage-ratio" defaultValue="0.33">
+      <toolParameter toolId="irida.corefacility.ca/galaxy-shed/repos/irida/filter_spades_repeats/filter_spades_repeat/1.0.0" parameterName="cov_cutoff" />
+    </parameter>
+    <parameter name="assembly-contig-min-repeat-coverage-ratio" defaultValue="1.75">
+      <toolParameter toolId="irida.corefacility.ca/galaxy-shed/repos/irida/filter_spades_repeats/filter_spades_repeat/1.0.0" parameterName="rep_cutoff" />
+    </parameter>
+    <parameter name="assembly-contig-min-length-coverage-calculation" defaultValue="5000">
+      <toolParameter toolId="irida.corefacility.ca/galaxy-shed/repos/irida/filter_spades_repeats/filter_spades_repeat/1.0.0" parameterName="cov_len_cutoff" />
+    </parameter>
+    <parameter name="annotation-similarity-e-value-cutoff" defaultValue="1e-06">
+      <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/crs4/prokka/prokka/1.11.0" parameterName="evalue" />
+    </parameter>
+    <parameter name="islandviewerclient-token" defaultValue="">
+      <toolParameter toolId="testtoolshed.g2.bx.psu.edu/repos/glwinsor/islandviewerclient/islandviewerclient/0.1.0" parameterName="token"/>
+    </parameter>
+    <parameter name="islandviewerclient-accession" defaultValue="">
+      <toolParameter toolId="testtoolshed.g2.bx.psu.edu/repos/glwinsor/islandviewerclient/islandviewerclient/0.1.0" parameterName="accession"/>
+    </parameter>
+  </parameters>
+    <outputs>
+    <output name="flash" fileName="flash.log"/>
+    <output name="contigs-all" fileName="contigs-all.fasta"/>
+    <output name="spades" fileName="spades.log"/>
+    <output name="contigs-with-repeats" fileName="contigs-with-repeats.fasta"/>
+    <output name="assembly-stats-with-repeats" fileName="assembly-stats-with-repeats.txt"/>
+    <output name="prokka" fileName="prokka.err"/>
+    <output name="prokka_stats" fileName="prokka_stats.txt"/>
+    <output name="genome" fileName="genome.sqn"/>
+    <output name="genome" fileName="genome.gbk"/>
+    <output name="prokka" fileName="prokka.log"/>
+  </outputs>
+  <toolRepositories>
+    <repository>
+      <name>spades</name>
+      <owner>nml</owner>
+      <url>https://toolshed.g2.bx.psu.edu</url>
+      <revision>35cb17bd8bf9</revision>
+    </repository>
+    <repository>
+      <name>islandviewerclient</name>
+      <owner>glwinsor</owner>
+      <url>https://testtoolshed.g2.bx.psu.edu</url>
+      <revision>682d5f943e29</revision>
+    </repository>
+    <repository>
+      <name>assemblystats</name>
+      <owner>irida</owner>
+      <url>https://irida.corefacility.ca/galaxy-shed</url>
+      <revision>51b76a5d78a5</revision>
+    </repository>
+    <repository>
+      <name>prokka</name>
+      <owner>crs4</owner>
+      <url>https://toolshed.g2.bx.psu.edu</url>
+      <revision>f5e44aad6498</revision>
+    </repository>
+    <repository>
+      <name>regex_find_replace</name>
+      <owner>jjohnson</owner>
+      <url>https://toolshed.g2.bx.psu.edu</url>
+      <revision>9ea374bb0350</revision>
+    </repository>
+    <repository>
+      <name>filter_spades_repeats</name>
+      <owner>irida</owner>
+      <url>https://irida.corefacility.ca/galaxy-shed</url>
+      <revision>f9fc830fa47c</revision>
+    </repository>
+    <repository>
+      <name>flash</name>
+      <owner>irida</owner>
+      <url>https://irida.corefacility.ca/galaxy-shed</url>
+      <revision>4287dd541327</revision>
+    </repository>
+  </toolRepositories>
+</iridaWorkflow>
+
