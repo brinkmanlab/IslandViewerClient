@@ -3,7 +3,8 @@
   <id>852bc2d9-e848-4ce5-a3d7-740f880a9f5b</id>
   <name>IslandViewerClient</name>
   <version>0.1</version>
-  <analysisType>islandviewerclient</analysisType>  <inputs>
+  <analysisType>islandviewerclient</analysisType>
+  <inputs>
     <sequenceReadsPaired>sequence_reads_paired</sequenceReadsPaired>
     <requiresSingleSample>true</requiresSingleSample>
   </inputs>
@@ -35,7 +36,7 @@
     <parameter name="islandviewerclient-accession" defaultValue="">
       <toolParameter toolId="testtoolshed.g2.bx.psu.edu/repos/glwinsor/islandviewerclient/islandviewerclient/0.1.0" parameterName="accession"/>
     </parameter>
-  </parameters>
+  </parameters>  
   <outputs>
     <output name="flash" fileName="flash.log"/>
     <output name="contigs-all" fileName="contigs-all.fasta"/>
@@ -47,8 +48,8 @@
     <output name="genome" fileName="genome.sqn"/>
     <output name="genome" fileName="genome.gbk"/>
     <output name="prokka" fileName="prokka.log"/>
-    <output name="islandviewer_reordered_genome_and_GIs" fileName="islandviewer_reordered_genome_and_GIs.gbk"/>
-    <output name="islandviewer_all_GIs" fileName="islandviewer_all_GIs.tab"/>
+    <output name="islandviewer_gis_reordered" fileName="islandviewer_gis_reordered.gbk"/>
+    <output name="islandviewer_all" fileName="islandviewer_all.tab"/>
   </outputs>
   <toolRepositories>
     <repository>
