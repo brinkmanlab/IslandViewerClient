@@ -47,8 +47,8 @@
     <output name="genome" fileName="genome.sqn"/>
     <output name="genome" fileName="genome.gbk"/>
     <output name="prokka" fileName="prokka.log"/>
-    <output name="islandviewergbk" fileName="islandviewergbk.gbk"/>
-    <output name="islandviewer" fileName="islandviewer.tab"/>
+    <output name="islandviewer_reordered_genome_and_GIs" fileName="islandviewer_reordered_genome_and_GIs.gbk"/>
+    <output name="islandviewer_all_GIs" fileName="islandviewer_all_GIs.tab"/>
   </outputs>
   <toolRepositories>
     <repository>
