@@ -13,8 +13,8 @@
       <param name="sequence" type="data" format="txt"  label="Sequence file (genbank format) for input into IslandViewer" />
     </inputs>
     <outputs>
-      <data name="gi_out_gbk" format="genbank"/>
-      <data name="gi_out_tab" format="tabular"/>
+      <data name="gbk" format="genbank"/>
+      <data name="tab" format="tabular"/>
     </outputs>
     <help><![CDATA[
     **IslandViewer HTTP API Client**
