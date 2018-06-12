@@ -22,6 +22,7 @@ requirements:
     - requests
     - requests-toolbelt
     - curl
+    - biopython
 
 about:
   home: https://github.com/glwinsor/IslandViewerClient
