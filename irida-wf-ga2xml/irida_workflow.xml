@@ -8,7 +8,7 @@
     <sequenceReadsPaired>sequence_reads_paired</sequenceReadsPaired>
     <requiresSingleSample>true</requiresSingleSample>
   </inputs>
-<parameters>
+ <parameters>
     <parameter name="read-merge-min-overlap" defaultValue="20">
       <toolParameter  toolId="irida.corefacility.ca/galaxy-shed/repos/irida/flash/FLASH/1.3.0" parameterName="min_overlap" />
     </parameter>
@@ -36,7 +36,7 @@
     <parameter name="islandviewerclient-accession" defaultValue="">
       <toolParameter toolId="testtoolshed.g2.bx.psu.edu/repos/glwinsor/islandviewerclient/islandviewerclient/0.1.0" parameterName="accession"/>
     </parameter>
-  </parameters>  
+  </parameters>
   <outputs>
     <output name="flash" fileName="flash.log"/>
     <output name="contigs-all" fileName="contigs-all.fasta"/>
@@ -48,8 +48,8 @@
     <output name="genome" fileName="genome.sqn"/>
     <output name="genome" fileName="genome.gbk"/>
     <output name="prokka" fileName="prokka.log"/>
-    <output name="islandviewer_gis_reordered" fileName="islandviewer_gis_reordered.gbk"/>
-    <output name="islandviewer_all" fileName="islandviewer_all.tab"/>
+    <output name="islandviewer_GIs_reordered_contigs" fileName="islandviewer_GIs_reordered_contigs.gbk"/>
+    <output name="islandviewer_all_GIs" fileName="islandviewer_all_GIs.tab"/>
   </outputs>
   <toolRepositories>
     <repository>
