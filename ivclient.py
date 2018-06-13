@@ -55,6 +55,7 @@ try:
         sys.exit()
     else:
         decoded = response.json()
+        print(decoded)
  
 except requests.exceptions.ReadTimeout as readerr:
     print(readerr)
@@ -79,7 +80,7 @@ while job_status !='Complete':
     response = requests.post(host+"/rest/job/"+job_token+"/", headers=headers)
     decoded = response.json()
     job_status=decoded['status']
-    print(job_status)
+
     if job_status=='Error':
         pass
     else:
