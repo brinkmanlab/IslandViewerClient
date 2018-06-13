@@ -30,7 +30,7 @@
     <parameter name="annotation-similarity-e-value-cutoff" defaultValue="1e-06">
       <toolParameter toolId="toolshed.g2.bx.psu.edu/repos/crs4/prokka/prokka/1.11.0" parameterName="evalue" />
     </parameter>
-    <parameter name="islandviewerclient-token" defaultValue="">
+    <parameter name="islandviewerclient-token" defaultValue="0fa09e98-cf7b-a5a5-7de5-8435fca5b30a">
       <toolParameter toolId="testtoolshed.g2.bx.psu.edu/repos/glwinsor/islandviewerclient/islandviewerclient/0.1.0" parameterName="token"/>
     </parameter>
     <parameter name="islandviewerclient-accession" defaultValue="">
@@ -62,7 +62,7 @@
       <name>islandviewerclient</name>
       <owner>glwinsor</owner>
       <url>https://testtoolshed.g2.bx.psu.edu</url>
-      <revision>682d5f943e29</revision>
+      <revision>b09865623053</revision>
     </repository>
     <repository>
       <name>assemblystats</name>
