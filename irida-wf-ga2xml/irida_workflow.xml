@@ -62,7 +62,7 @@
       <name>islandviewerclient</name>
       <owner>glwinsor</owner>
       <url>https://testtoolshed.g2.bx.psu.edu</url>
-      <revision>b09865623053</revision>
+      <revision>6a99f61cb92b</revision>
     </repository>
     <repository>
       <name>assemblystats</name>
